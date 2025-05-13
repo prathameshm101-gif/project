@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "../ui/button";
-import { Card, CardContent } from "../../components/ui/card";
+import { Card } from "../ui/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Awards = () => {
   const [currentIndex, setCurrentIndex] = useState(2);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const awardCards = [
     {
@@ -56,12 +59,37 @@ const Awards = () => {
     },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % awardCards.length);
-    }, 3000);
-    return () => clearInterval(interval);
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % awardCards.length);
   }, [awardCards.length]);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? awardCards.length - 1 : prevIndex - 1
+    );
+  }, [awardCards.length]);
+
+  useEffect(() => {
+    const interval = setInterval(handleNext, 3000);
+    return () => clearInterval(interval);
+  }, [handleNext]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      handleNext();
+    }
+    if (touchStart - touchEnd < -75) {
+      handlePrev();
+    }
+  };
 
   const getVisibleCards = () => {
     const cards = [];
@@ -108,15 +136,37 @@ const Awards = () => {
         </h2>
 
         {/* Carousel */}
-        <div className="relative h-[400px] md:h-[450px] mt-8 lg:mt-12 overflow-hidden">
+        <div 
+          className="relative h-[400px] md:h-[450px] mt-8 lg:mt-12"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Navigation Arrows */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-6 h-6 text-[#0578b1]" />
+          </button>
+          
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-6 h-6 text-[#0578b1]" />
+          </button>
+
           <div className="w-full h-full flex items-center justify-center relative">
             {getVisibleCards().map((award, index) => (
               <Card
                 key={index}
-                className="transition-all duration-500"
+                className="transition-all duration-500 touch-none"
                 style={getCardStyle(award.position)}
               >
-                <CardContent className="w-[280px] p-6 bg-white rounded-lg shadow-lg">
+                <div className="w-[280px] p-6 bg-white rounded-lg shadow-lg">
                   <div className="w-full h-[120px] bg-[#eaf8ff] mb-4 overflow-hidden rounded-md">
                     <img
                       src={award.image}
@@ -133,7 +183,7 @@ const Awards = () => {
                   <p className="text-sm text-[#4a4a4a]">
                     {award.description}
                   </p>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
