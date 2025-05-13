@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="container mx-auto max-w-7xl py-16 lg:py-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Column */}
-          <div className="space-y-6">
+          <div className="space-y-6 mt-[20%]">
             <h1 className="text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] font-black text-[#0578b1] leading-tight whitespace-nowrap">
               Dr. Kunal Shet
             </h1>
