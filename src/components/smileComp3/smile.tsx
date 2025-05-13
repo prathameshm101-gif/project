@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 
-const CircularProgress = ({ percentageText , percentageBar, label }) => {
+const CircularProgress = ({ percentageText, percentageBar, label }: any) => {
   const radius = 45;
   const stroke = 6;
   const normalizedRadius = radius - stroke / 2;
