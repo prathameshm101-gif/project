@@ -34,7 +34,7 @@ const Clinics = () => {
     <div>
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-0">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1] text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0578b1] text-center mb-12">
             Explore Our Dental Tourism Location
           </h2>
 
@@ -77,7 +77,7 @@ const Clinics = () => {
               <img
                 src="/map.png"
                 alt="India Dental Locations Map"
-                className="w-full max-w-[500px] h-auto"
+                className="w-full max-w-[500px] h-auto "
               />
             </div>
           </div>

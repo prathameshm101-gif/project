@@ -65,6 +65,15 @@ const Smile = () => {
             <h2 className="text-3xl font-semibold text-[#0578b1]">
               How Will My Smile Look?
             </h2>
+            <p className="text-xl text-[#000000a6]">
+                After my treatment with Dr. Kunal
+              </p>
+              <p className="text-lg text-[#4a4a4a]">
+                Smile transformations are more than cosmetic — they change
+                confidence, careers, and relationships. With Dr. Kunal Shet's
+                advanced techniques, patients experience world-class aesthetic
+                and functional results.
+              </p>
 
             <div className="relative h-[300px] sm:h-[350px] m-0">
               <img
@@ -74,7 +83,7 @@ const Smile = () => {
               />
             </div>
 
-            <div className="flex justify-center gap-4 overflow-x-auto px-2">
+            <div className="flex justify-center gap-4 overflow-x-auto px-2 " style={{ marginBottom: "25%" }} >
               {statistics.map((stat, index) => (
                 <CircularProgress
                   key={index}
@@ -102,7 +111,7 @@ const Smile = () => {
                 and functional results.
               </p>
 
-              <div className="grid grid-cols-3 gap-8 max-w-full">
+              <div className="grid grid-cols-3 gap-4 max-w-full  ">
                 {statistics.map((stat, index) => (
                   <CircularProgress
                     key={index}

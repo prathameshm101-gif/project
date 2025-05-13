@@ -64,9 +64,9 @@ export const YTvideo = () => {
   };
 
   return (
-    <section className="bg-[url('/rectangle-512.png')] bg-cover bg-center py-16 md:py-24 px-4 md:px-8">
+    <section className="bg-[url('/rectangle-512.png')] mt-[-5%] bg-cover bg-center py-16 md:py-24 px-4 md:px-8">
       <div className="m-[5%]">
-        <h2 className="text-center text-3xl lg:text-[50px] font-['Poppins'] font-semibold text-[#0578b1] tracking-[-2px] leading-snug mb-12">
+        <h2 className="text-center mt-[10%] text-3xl lg:text-[50px] font-['Poppins'] font-semibold text-[#0578b1] tracking-[-2px] leading-snug mb-12">
           Watch How Dr. Shet Transforms Smiles
         </h2>
 
