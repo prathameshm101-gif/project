@@ -13,50 +13,38 @@ const Awards = () => {
       title: "Leading Dental Chain of the Year",
       description: "Honored for setting new benchmarks in patient-first dental care, welcoming smiles from India and around the globe.",
       year: "2024",
-      image: "/aasiya--8--2.png",
+      image: "/c1.png",
     },
     {
       title: "Digital Dentistry Innovation",
       description: "Pioneering advanced digital solutions for precise, comfortable, and efficient dental care delivery.",
       year: "2024",
-      image: "/aasiya--8--2.png",
+      image: "/c2.png",
     },
     {
       title: "All-on-4 Treatment Excellence",
       description: "Recognized for world-class All-on-4 implant solutions, trusted by patients across India and international clients seeking expert care.",
       year: "2023, 2024, 2025",
-      image: "/aasiya--8--2.png",
+      image: "/c3.png",
     },
     {
       title: "Best Dental Tourism Provider",
       description: "Excellence in providing comprehensive dental care solutions to international patients.",
       year: "2024",
-      image: "/aasiya--8--2.png",
+      image: "/c4.png",
     },
     {
       title: "Patient Safety Excellence",
       description: "Setting the highest standards in patient safety and care protocols across all clinics.",
       year: "2024",
-      image: "/aasiya--8--2.png",
+      image: "/c5.png",
     },
     {
       title: "Healthcare Leadership Award",
       description: "Recognized for outstanding contribution to dental healthcare accessibility and innovation.",
       year: "2024",
-      image: "/aasiya--8--2.png",
-    },
-    {
-      title: "Best Multi-Specialty Dental Chain",
-      description: "Awarded for comprehensive dental care excellence across multiple specialties.",
-      year: "2024",
-      image: "/aasiya--8--2.png",
-    },
-    {
-      title: "Customer Service Excellence",
-      description: "Recognized for exceptional patient experience and satisfaction across all clinics.",
-      year: "2024",
-      image: "/aasiya--8--2.png",
-    },
+      image: "/c6.png",
+    }
   ];
 
   const handleNext = useCallback(() => {

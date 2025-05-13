@@ -1,8 +1,34 @@
-import { Button } from "../ui/button";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import { Button } from '../ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Clinics = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const clinicImages = [
+    "/mapimg1.png",
+    "/group-142.png",
+    "/group-153.png",
+    "/group-168.png",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % clinicImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [clinicImages.length]);
+
+  const handlePrevious = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? clinicImages.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % clinicImages.length);
+  };
+
   return (
     <div>
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-0">
@@ -11,46 +37,41 @@ const Clinics = () => {
             Explore Our Dental Tourism Location
           </h2>
 
-          {/* Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column */}
             <div className="flex flex-col gap-6">
-              <div className="relative">
-                <p
-                  className={`text-lg leading-relaxed md:max-w-3xl ${
-                    expanded ? "" : "line-clamp-3"
-                  } md:line-clamp-none`}
-                >
-                  With over 117 state-of-the-art dental clinics across India,
-                  our network ensures seamless, modern, and personalized care
-                  for implants, aligners, cosmetic makeovers, and full smile
-                  rehabilitations. From vibrant cities like Mumbai, Pune,
-                  Bangalore, and Delhi to rapidly growing destinations in
-                  Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental
-                  care is never far away. For international patients, we offer a
-                  complete care experience, including premium treatments,
-                  transparent procedures, and dedicated travel support, ensuring
-                  a smooth journey from treatment planning to post-care.
-                </p>
-
-                {/* View More / Less - only on mobile */}
-                <button
-                  className="mt-2 text-[#0578b1] font-medium md:hidden"
-                  onClick={() => setExpanded((prev) => !prev)}
-                >
-                  {expanded ? "View Less" : "View More"}
-                </button>
-              </div>
-              <div>
-                <img
-                  src="/mapimg1.png"
-                  alt="Dental Clinic"
-                  className="rounded-lg shadow-md w-full h-auto"
-                />
+              <p className="text-lg leading-relaxed">
+                With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations in Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental care is never far away. For international patients, we offer a complete care experience, including premium treatments, transparent procedures, and dedicated travel support, ensuring a smooth journey from treatment planning to post-care.
+              </p>
+              <div className="relative rounded-lg overflow-hidden">
+                <div className="relative h-[300px] md:h-[400px]">
+                  {clinicImages.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`Dental Clinic ${index + 1}`}
+                      className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
+                        currentImageIndex === index ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                  <button
+                    onClick={handlePrevious}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors z-10"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-[#0578b1]" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors z-10"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6 text-[#0578b1]" />
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Right Column */}
             <div className="flex items-center justify-center">
               <img
                 src="/map.png"
@@ -60,7 +81,6 @@ const Clinics = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
           <Button className="w-full lg:w-[372px] h-12 mt-8 lg:mt-[100px] mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
             <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal">
               Request a Virtual Quote
