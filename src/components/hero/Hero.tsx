@@ -18,10 +18,11 @@ const Hero = () => {
               Award-Winning Implantologist | 80,000+ Smiles Delivered | Mentor
               to 400+ Dentists
             </div>
-            <Button className=" w-full  h-12 mt-8 lg:mt-[100px]  block bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-2 px-4">
-              <span className="font-['Poppins'] font-medium text-white text-base sm:text-lg lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
+            <Button className=" h-12 mt-8 lg:mt-[100px] block bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-2 px-4 overflow-hidden">
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-base sm:text-lg lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
                 Schedule Your Free Video Consultation
               </span>
+
               <img
                 className="w-[22px] h-[22px] flex-shrink-0"
                 alt="Arrow Icon"
