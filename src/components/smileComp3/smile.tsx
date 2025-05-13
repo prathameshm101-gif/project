@@ -6,7 +6,7 @@ const CircularProgress = ({ percentageText, percentageBar, label }: any) => {
   const stroke = 6;
   const normalizedRadius = radius - stroke / 2;
   const circumference = 2 * Math.PI * normalizedRadius;
-  const numericBar = parseInt(percentageBar.replace('%', ''));
+  const numericBar = parseInt(percentageBar.replace("%", ""));
   const strokeDashoffset = circumference - (numericBar / 100) * circumference;
 
   return (
@@ -42,7 +42,9 @@ const CircularProgress = ({ percentageText, percentageBar, label }: any) => {
           {percentageText}
         </text>
       </svg>
-      <p className="mt-2 text-[#0578b1] text-xs sm:text-sm font-medium">{label}</p>
+      <p className="mt-2 text-[#0578b1] text-xs sm:text-sm font-medium">
+        {label}
+      </p>
     </div>
   );
 };
@@ -64,11 +66,11 @@ const Smile = () => {
               How Will My Smile Look?
             </h2>
 
-            <div className="flex justify-center">
+            <div className="relative h-[300px] sm:h-[350px] m-0">
               <img
                 src="/smileTransformationSection.png"
                 alt="Smile Transformation"
-                className="w-[80%] max-w-sm mx-auto object-contain"
+                className="absolute right-0 top-1/2 -translate-y-1/2 h-full object-contain"
               />
             </div>
 
