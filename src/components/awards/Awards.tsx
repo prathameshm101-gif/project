@@ -10,39 +10,39 @@ const Awards = () => {
 
   const awardCards = [
     {
-      title: "Leading Dental Chain of the Year",
-      description: "Honored for setting new benchmarks in patient-first dental care, welcoming smiles from India and around the globe.",
-      year: "2024",
+      title: "All-on-4 Treatment Excellence",
+      description: "Recognized for world-class All-on-4 implant solutions, trusted by patients across India and international clients seeking expert care.",
+      year: "2023, 2024, 2025",
       image: "/c1.png",
     },
     {
-      title: "Digital Dentistry Innovation",
-      description: "Pioneering advanced digital solutions for precise, comfortable, and efficient dental care delivery.",
-      year: "2024",
+      title: "80,000+ Successful Smiles, One Smile Expert",
+      description: "Dr. Shet has successfully placed over 80,000 dental implants, transforming countless smiles with precision and care.",
+      year: "",
       image: "/c2.png",
     },
     {
-      title: "All-on-4 Treatment Excellence",
-      description: "Recognized for world-class All-on-4 implant solutions, trusted by patients across India and international clients seeking expert care.",
+      title: "Shaping Future of 400+ Dental Professionals",
+      description: "An inspiring educator, Dr. Shet has trained and mentored over 400 dentists in advanced implantology and orthodontic techniques.",
       year: "2023, 2024, 2025",
       image: "/c3.png",
     },
     {
-      title: "Best Dental Tourism Provider",
-      description: "Excellence in providing comprehensive dental care solutions to international patients.",
-      year: "2024",
+      title: "Spreading Dental Wisdom Worldwide ",
+      description: "He is regularly invited to speak at international dental conferences and workshops, sharing clinical insights and advanced implant protocols.",
+      year: "",
       image: "/c4.png",
     },
     {
-      title: "Patient Safety Excellence",
-      description: "Setting the highest standards in patient safety and care protocols across all clinics.",
-      year: "2024",
+      title: "Delivering World-Class Care Globally",
+      description: "A destination where global travelers choose Dr. Kunal Shet for advanced, affordable treatments. Trusted & Recommendedworldwide.",
+      year: "",
       image: "/c5.png",
     },
     {
-      title: "Healthcare Leadership Award",
-      description: "Recognized for outstanding contribution to dental healthcare accessibility and innovation.",
-      year: "2024",
+      title: "Leading Dental Chain of the Year",
+      description: "Honored for setting new benchmarks in patient-first dental care, welcoming smiles from India and around the globe.",
+      year: "",
       image: "/c6.png",
     }
   ];

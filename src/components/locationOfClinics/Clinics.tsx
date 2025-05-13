@@ -7,9 +7,10 @@ const Clinics = () => {
 
   const clinicImages = [
     "/mapimg1.png",
-    "/group-142.png",
-    "/group-153.png",
-    "/group-168.png",
+    "/mapimg2.png",
+    "/mapimg3.png",
+    "/mapimg4.png",
+    "/mapimg5.png",
   ];
 
   useEffect(() => {

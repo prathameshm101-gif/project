@@ -5,49 +5,49 @@ const BeforAfter = () => {
     {
       title: "Complete Smile Makeover",
       before:
-        "https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg",
+        "/b1.png",
       after:
-        "https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg",
+        "/a1.png",
       type: "Cosmetic Dentistry",
     },
     {
       title: "Dental Implants",
       before:
-        "https://images.pexels.com/photos/6975475/pexels-photo-6975475.jpeg",
+        "/b2.png",
       after:
-        "https://images.pexels.com/photos/5069438/pexels-photo-5069438.jpeg",
+        "/a2.png",
       type: "Implantology",
     },
     {
       title: "Teeth Whitening",
       before:
-        "https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg",
+        "/b3.png",
       after:
-        "https://images.pexels.com/photos/3845811/pexels-photo-3845811.jpeg",
+        "/a3.png",
       type: "Cosmetic",
     },
     {
       title: "Orthodontic Treatment",
       before:
-        "https://images.pexels.com/photos/4270365/pexels-photo-4270365.jpeg",
+        "/b4.png",
       after:
-        "https://images.pexels.com/photos/4270366/pexels-photo-4270366.jpeg",
+        "/a4.png",
       type: "Orthodontics",
     },
     {
       title: "Veneers",
       before:
-        "https://images.pexels.com/photos/4270367/pexels-photo-4270367.jpeg",
+        "/b5.png",
       after:
-        "https://images.pexels.com/photos/4270368/pexels-photo-4270368.jpeg",
+        "/a5.png",
       type: "Cosmetic",
     },
     {
       title: "Full Mouth Rehabilitation",
       before:
-        "https://images.pexels.com/photos/9158650/pexels-photo-9158650.jpeg",
+        "/b6.png",
       after:
-        "https://images.pexels.com/photos/2531737/pexels-photo-2531737.jpeg",
+        "/a6.png",
       type: "Restorative",
     },
   ];
@@ -140,13 +140,13 @@ const BeforAfter = () => {
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${item.before})` }}
+                    style={{ backgroundImage: `url(${item.after})` }}
                   />
 
                   <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                      backgroundImage: `url(${item.after})`,
+                      backgroundImage: `url(${item.before})`,
                       clipPath: `inset(0 ${100 - sliderPositions[index]}% 0 0)`,
                     }}
                   />

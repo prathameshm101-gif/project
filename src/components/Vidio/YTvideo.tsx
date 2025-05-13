@@ -5,29 +5,54 @@ export const YTvideo = () => {
 
   const videos = [
     {
-      id: "video1",
-      videoId: "dQw4w9WgXcQ",
-      thumbnail: "https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb",
-      title: "Complete Smile Makeover Journey"
+      id: "short1",
+      videoId: "n8hpGs2bNXE",
+      type: "short",
+      title: "Smile Makeover Short",
+      thumbnail: "https://img.youtube.com/vi/n8hpGs2bNXE/hqdefault.jpg"
     },
     {
       id: "video2",
-      videoId: "9bZkp7q19f0",
-      thumbnail: "https://images.pexels.com/photos/3845811/pexels-photo-3845811.jpeg?auto=compress&cs=tinysrgb",
-      title: "All-on-4 Dental Implants Procedure"
+      videoId: "79cVNtpbIRM",
+      type: "video",
+      title: "Dental Implants Journey",
+      thumbnail: "https://img.youtube.com/vi/79cVNtpbIRM/hqdefault.jpg"
     },
     {
       id: "video3",
-      videoId: "M7lc1UVf-VE",
-      thumbnail: "https://images.pexels.com/photos/3845812/pexels-photo-3845812.jpeg?auto=compress&cs=tinysrgb",
-      title: "Advanced Cosmetic Dentistry"
+      videoId: "35Sdpz7P-mo",
+      type: "video",
+      title: "Cosmetic Dentistry Result",
+      thumbnail: "https://img.youtube.com/vi/35Sdpz7P-mo/hqdefault.jpg"
     },
     {
       id: "video4",
-      videoId: "jNQXAC9IVRw",
-      thumbnail: "https://images.pexels.com/photos/3845813/pexels-photo-3845813.jpeg?auto=compress&cs=tinysrgb",
-      title: "Patient Testimonial"
-    }
+      videoId: "An_KT8UMZ_o",
+      type: "video",
+      title: "Orthodontic Braces Journey",
+      thumbnail: "https://img.youtube.com/vi/An_KT8UMZ_o/hqdefault.jpg"
+    },
+    {
+      id: "video5",
+      videoId: "5tTzEAI_Y84",
+      type: "video",
+      title: "Dental Crown Restoration",
+      thumbnail: "https://img.youtube.com/vi/5tTzEAI_Y84/hqdefault.jpg"
+    },
+    {
+      id: "video6",
+      videoId: "99lD6oMq1bo",
+      type: "video",
+      title: "Teeth Whitening Transformation",
+      thumbnail: "https://img.youtube.com/vi/99lD6oMq1bo/hqdefault.jpg"
+    },
+    {
+      id: "video7",
+      videoId: "4Ob0OTUH73c",
+      type: "video",
+      title: "Veneers: Before and After",
+      thumbnail: "https://img.youtube.com/vi/4Ob0OTUH73c/hqdefault.jpg"
+    },
   ];
 
   const handleVideoClick = (index: number) => {
@@ -45,7 +70,7 @@ export const YTvideo = () => {
           Watch How Dr. Shet Transforms Smiles
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {videos.map((video, index) => (
             <div
               key={video.id}
@@ -64,9 +89,9 @@ export const YTvideo = () => {
                   </svg>
                 </button>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+              {/* <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
                 <h3 className="text-white text-lg font-semibold">{video.title}</h3>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
