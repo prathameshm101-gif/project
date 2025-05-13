@@ -107,17 +107,18 @@ const BeforAfter = () => {
       document.removeEventListener("mouseup", handleMouseUpGlobal);
     };
   }, []);
+
   return (
-    <div>
-      <section className="bg-[url(/rectangle-474.svg)] bg-cover bg-center py-16 md:py-24 px-4 md:px-8 lg:px-0">
-        <div className="container mx-auto max-w-7xl relative" >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1] text-center absolute top-[-8%]   ">
+    <section className="bg-[url(/rectangle-474.svg)] bg-cover bg-center py-16 md:py-24 overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-4 md:px-8 lg:px-0">
+        <div className="relative">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1] text-center mb-12 lg:mb-24">
             Dr. Kunal Shet's Transformation Gallery
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 lg:mt-[150px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {transformations.map((item, index) => (
-              <div key={index} className="mb-10">
+              <div key={index} className="w-full">
                 <div className="mb-3">
                   <h3 className="text-xl font-semibold text-[#0578b1]">
                     {item.title}
@@ -128,25 +129,27 @@ const BeforAfter = () => {
                 </div>
 
                 <div
-                  className="relative h-80 overflow-hidden rounded-lg shadow-lg cursor-ew-resize"
+                  className="relative h-[300px] md:h-[350px] w-full overflow-hidden rounded-lg shadow-lg cursor-ew-resize touch-none"
                   onMouseDown={() => handleMouseDown(index)}
                   onMouseUp={() => handleMouseUp(index)}
                   onMouseMove={(e) => handleMouseMove(e, index)}
                   onTouchMove={(e) => handleTouchMove(e, index)}
+                  onTouchStart={() => handleMouseDown(index)}
+                  onTouchEnd={() => handleMouseUp(index)}
                 >
                   {/* Before Image */}
                   <div
-                    className="absolute top-0 left-0 h-full w-full bg-cover bg-center"
+                    className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url(${item.before})` }}
                   />
 
                   {/* After Image */}
                   <div
-                    className="absolute top-0 left-0 h-full w-full bg-cover bg-center"
+                    className="absolute inset-0 bg-cover bg-center"
                     style={{
                       backgroundImage: `url(${item.after})`,
                       width: `${sliderPositions[index]}%`,
-                      clipPath: `inset(0 0 0 0)`,
+                      clipPath: `inset(0 ${100 - sliderPositions[index]}% 0 0)`,
                     }}
                   />
 
@@ -187,8 +190,8 @@ const BeforAfter = () => {
             ))}
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

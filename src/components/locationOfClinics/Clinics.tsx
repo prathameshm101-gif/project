@@ -1,7 +1,9 @@
 import { Button } from '../ui/button';
+import { useState } from 'react';
 
 
 const Clinics = () => {
+   const [expanded, setExpanded] = useState(false);
   return (
     <div>
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-0">
@@ -14,9 +16,23 @@ const Clinics = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column */}
             <div className="flex flex-col gap-6">
-              <p className="text-lg leading-relaxed">
-                With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations in Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental care is never far away. For international patients, we offer a complete care experience, including premium treatments, transparent procedures, and dedicated travel support, ensuring a smooth journey from treatment planning to post-care.
-              </p>
+              <div className="relative">
+      <p
+        className={`text-lg leading-relaxed md:max-w-3xl ${
+          expanded ? "" : "line-clamp-3"
+        } md:line-clamp-none`}
+      >
+        With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations in Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental care is never far away. For international patients, we offer a complete care experience, including premium treatments, transparent procedures, and dedicated travel support, ensuring a smooth journey from treatment planning to post-care.
+      </p>
+
+      {/* View More / Less - only on mobile */}
+      <button
+        className="mt-2 text-[#0578b1] font-medium md:hidden"
+        onClick={() => setExpanded((prev) => !prev)}
+      >
+        {expanded ? "View Less" : "View More"}
+      </button>
+    </div>
              <div >
              <img
                 src="/mapimg1.png"
