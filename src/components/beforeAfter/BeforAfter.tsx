@@ -128,7 +128,7 @@ const BeforAfter = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
 
             {transformations.map((item, index) => (
-              <div key={index}  className="w-full md:w-[48%] lg:w-[30%] max-w-[400px]">
+              <div key={index} className="w-full p-3">
                 {/* <div className="mb-3">
                   <h3 className="text-xl font-semibold text-[#0578b1]">
                     {item.title}
