@@ -7,6 +7,7 @@ import BeforAfter from "../../components/beforeAfter/BeforAfter";
 import Clinics  from "../../components/locationOfClinics/Clinics";
 import {YTvideo} from "../../components/Vidio/YTvideo";
 import ContactForm from '../../components/form/ContactForm'
+import  ImplantsCounter  from "../../implantCount/ImplantsCounter";
 
 
 
@@ -24,6 +25,9 @@ export const Prathamesh = (): JSX.Element => {
 
       {/* Awards Section */}
       <Awards/>
+
+      {/* Implants Counter Section */}
+      <ImplantsCounter />
 
       {/* Gallery Section */}
       <BeforAfter/>
