@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Button } from "../ui/button";
 
 const About = () => {
   return (
@@ -14,7 +15,9 @@ const About = () => {
                 className="w-full max-w-md mx-auto"
               />
               <div className="text-center mt-4">
-                <h3 className="text-xl font-semibold text-[#0578b1]">Dr. Kunal Shet</h3>
+                <h3 className="text-xl font-semibold text-[#0578b1]">
+                  Dr. Kunal Shet
+                </h3>
                 <p className="text-sm text-[#0578b1]">
                   (BDS, MDS, Orthodontics & Dentofacial Orthopedics,
                   <br />
@@ -30,14 +33,32 @@ const About = () => {
               </h2>
               <div className="text-lg text-[#4a4a4a] space-y-4">
                 <p>
-                  Dr. Kunal Shet is a celebrated implantologist and a pioneer in modern dentistry, renowned for transforming over 80,000 smiles across India. With a BDS, a postgrad in Orthodontics and Dentofacial Orthopedics, and a Master's in Cortical Implantology from Italy, he brings unmatched expertise, warmth, and visionary leadership to the field.
+                  Dr. Kunal Shet is a celebrated implantologist and a pioneer in
+                  modern dentistry, renowned for transforming over 80,000 smiles
+                  across India. With a BDS, a postgrad in Orthodontics and
+                  Dentofacial Orthopedics, and a Master's in Cortical
+                  Implantology from Italy, he brings unmatched expertise,
+                  warmth, and visionary leadership to the field.
                 </p>
                 <p>
-                  As the founder of Orthosquare Multispeciality Dental Clinic — India's fastest-growing and award-winning dental network with over 120 clinics across India — Dr. Shet is admired for his precision, passion, and patient-first philosophy.
+                  As the founder of Orthosquare Multispeciality Dental Clinic —
+                  India's fastest-growing and award-winning dental network with
+                  over 120 clinics across India — Dr. Shet is admired for his
+                  precision, passion, and patient-first philosophy.
                 </p>
               </div>
             </div>
           </div>
+        {/* CTA Button */}
+        <div className="w-full text-center">
+  <Button className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto">
+    <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal whitespace-nowrap p-2">
+      Get In Touch With Dr. Shet via Video Call
+    </span>
+    <img className="w-[29px] h-[29px] ml-2" alt="Frame" src="/math.png" />
+  </Button>
+</div>
+
         </div>
       </section>
     </div>
