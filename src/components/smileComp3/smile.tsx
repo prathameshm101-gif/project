@@ -122,7 +122,7 @@ const Smile = () => {
                 ))}
               </div>
 
-              <Button className="w-[372px] h-12 mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
+              <Button className="w-[372px] h-12 mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200">
                 <span className="font-['Poppins'] font-medium text-white text-[23px] tracking-[-0.92px]">
                   Request a Virtual Quote
                 </span>

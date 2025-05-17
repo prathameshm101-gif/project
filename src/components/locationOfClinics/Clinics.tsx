@@ -87,9 +87,9 @@ const Clinics = () => {
             </div>
           </div>
 
-          <Button className="w-full lg:w-[372px] h-12 mt-8 lg:mt-[100px] mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
+          <Button className="w-full lg:w-[372px] h-12 mt-8 lg:mt-[100px] mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200">
             <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal">
-              Request a Virtual Quote
+              Request a Virtual Consultation
             </span>
             <img className="w-[29px] h-[29px]" alt="Frame" src="/math.png" />
           </Button>

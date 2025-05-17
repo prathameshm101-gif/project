@@ -1,5 +1,3 @@
-
-
 const ContactForm = () => {
   return (
     <section className="py-16 px-4 md:px-8 bg-white">
@@ -8,7 +6,11 @@ const ContactForm = () => {
           Plan Your Visit with Dr. Shet Today
         </h2>
         <p className="text-gray-700 text-base md:text-lg mb-12">
-          Please fill out the form below to either <a href="#" className="underline text-[#0578b1]">schedule a free video consultation</a> with Dr. Shet or begin planning your dental trip to India. You can choose the clinic location that suits you best
+          Please fill out the form below to either{" "}
+          <a href="#" className="underline text-[#0578b1]">
+            schedule a free video consultation
+          </a>{" "}
+          with Dr. Shet or begin planning your dental trip to India. You can choose the clinic location that suits you best
         </p>
       </div>
 
@@ -43,6 +45,16 @@ const ContactForm = () => {
           <label htmlFor="consent" className="leading-snug">
             By checking this box, I confirm that I agree to Orthosquare M.D.C. Pvt. Ltd.’s Privacy Policy and consent to the use of my information as stated
           </label>
+        </div>
+
+        {/* Submit Button */}
+        <div className="md:col-span-2 text-center">
+          <button
+            type="submit"
+            className="bg-[#ff7f50] text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-[#046a9d] transition duration-200"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </section>
