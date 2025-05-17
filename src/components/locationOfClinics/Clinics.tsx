@@ -3,31 +3,33 @@ import { Button } from '../ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Clinics = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  const clinicImages = [
-    "/mapimg1.png",
-    "/mapimg2.png",
-    "/mapimg3.png",
-    "/mapimg4.png",
-    "/mapimg5.png",
+  const videoIds = [
+    "n8hpGs2bNXE",
+    "79cVNtpbIRM",
+    "35Sdpz7P-mo",
+    "An_KT8UMZ_o",
+    "5tTzEAI_Y84",
+    "99lD6oMq1bo",
+    "4Ob0OTUH73c"
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % clinicImages.length);
-    }, 3000);
+      setCurrentVideoIndex((prev) => (prev + 1) % videoIds.length);
+    }, 8000); // 8 seconds per video
     return () => clearInterval(interval);
-  }, [clinicImages.length]);
+  }, [videoIds.length]);
 
   const handlePrevious = () => {
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? clinicImages.length - 1 : prev - 1
+    setCurrentVideoIndex((prev) =>
+      prev === 0 ? videoIds.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % clinicImages.length);
+    setCurrentVideoIndex((prev) => (prev + 1) % videoIds.length);
   };
 
   return (
@@ -43,29 +45,32 @@ const Clinics = () => {
               <p className="text-lg leading-relaxed">
                 With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations in Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental care is never far away. For international patients, we offer a complete care experience, including premium treatments, transparent procedures, and dedicated travel support, ensuring a smooth journey from treatment planning to post-care.
               </p>
+
               <div className="relative rounded-lg overflow-hidden">
                 <div className="relative h-[300px] md:h-[400px]">
-                  {clinicImages.map((image, index) => (
-                    <img
+                  {videoIds.map((id, index) => (
+                    <iframe
                       key={index}
-                      src={image}
-                      alt={`Dental Clinic ${index + 1}`}
-                      className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
-                        currentImageIndex === index ? 'opacity-100' : 'opacity-0'
+                      className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+                        currentVideoIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
                       }`}
+                      src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`}
+                      title={`Dental Video ${index + 1}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
                     />
                   ))}
                   <button
                     onClick={handlePrevious}
                     className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors z-10"
-                    aria-label="Previous image"
+                    aria-label="Previous video"
                   >
                     <ChevronLeft className="w-6 h-6 text-[#0578b1]" />
                   </button>
                   <button
                     onClick={handleNext}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors z-10"
-                    aria-label="Next image"
+                    aria-label="Next video"
                   >
                     <ChevronRight className="w-6 h-6 text-[#0578b1]" />
                   </button>
@@ -77,7 +82,7 @@ const Clinics = () => {
               <img
                 src="/map.png"
                 alt="India Dental Locations Map"
-                className="w-full max-w-[500px] h-auto "
+                className="w-full max-w-[500px] h-auto"
               />
             </div>
           </div>
