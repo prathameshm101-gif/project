@@ -66,14 +66,14 @@ const Smile = () => {
               How Will My Smile Look?
             </h2>
             <p className="text-xl text-[#000000a6]">
-                After my treatment with Dr. Kunal
-              </p>
-              <p className="text-lg text-[#4a4a4a]">
-                Smile transformations are more than cosmetic — they change
-                confidence, careers, and relationships. With Dr. Kunal Shet's
-                advanced techniques, patients experience world-class aesthetic
-                and functional results.
-              </p>
+              After my treatment with Dr. Kunal
+            </p>
+            <p className="text-lg text-[#4a4a4a]">
+              Smile transformations are more than cosmetic — they change
+              confidence, careers, and relationships. With Dr. Kunal Shet's
+              advanced techniques, patients experience world-class aesthetic
+              and functional results.
+            </p>
 
             <div className="relative h-[300px] sm:h-[350px] m-0">
               <img
@@ -83,7 +83,7 @@ const Smile = () => {
               />
             </div>
 
-            <div className="flex justify-center gap-4 overflow-x-auto px-2 " style={{ marginBottom: "25%" }} >
+            <div className="flex justify-center gap-4 overflow-x-auto px-2">
               {statistics.map((stat, index) => (
                 <CircularProgress
                   key={index}
@@ -97,7 +97,7 @@ const Smile = () => {
 
           {/* Desktop Layout */}
           <div className="hidden lg:grid grid-cols-2 gap-12">
-            <div className="space-y-8">
+            <div className="space-y-8 z-20">
               <h2 className="text-5xl font-semibold text-[#0578b1]">
                 How Will My Smile Look?
               </h2>
@@ -111,7 +111,7 @@ const Smile = () => {
                 and functional results.
               </p>
 
-              <div className="grid grid-cols-3 gap-4 max-w-full  ">
+              <div className="grid grid-cols-3 gap-4 max-w-full">
                 {statistics.map((stat, index) => (
                   <CircularProgress
                     key={index}
@@ -124,7 +124,7 @@ const Smile = () => {
 
               <Button className="w-[372px] h-12 mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
                 <span className="font-['Poppins'] font-medium text-white text-[23px] tracking-[-0.92px]">
-                  Request a Virtual Quote
+                  Request a Virtual Consultation
                 </span>
                 <img
                   className="w-[29px] h-[29px]"
@@ -137,7 +137,7 @@ const Smile = () => {
         </div>
 
         {/* Right-side Image (only for desktop) */}
-        <div className="absolute right-0 top-0 h-full z-0 hidden lg:block">
+        <div className="absolute right-0 top-0 h-full w-1/2 z-10 hidden lg:block">
           <img
             src="/smileTransformationSection.png"
             alt="Smile Transformation"
