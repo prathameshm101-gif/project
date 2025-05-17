@@ -1,4 +1,4 @@
-
+import { Analytics } from "@vercel/analytics/react";
 import Hero from '../../components/hero/Hero';
 import About from '../../components/about/About';
 import Smile from '../../components/smileComp3/smile'
@@ -37,7 +37,8 @@ export const Prathamesh = (): JSX.Element => {
     {/* Form */}
     <ContactForm/>
 
- 
+      {/* Analytics */}
+      <Analytics />
     </div>
   );
 };
