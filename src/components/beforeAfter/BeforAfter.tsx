@@ -50,14 +50,14 @@ const BeforAfter = () => {
         "/a6.png",
       type: "Restorative",
     },
-    {
-      title: "Full Mouth Rehabilitation",
-      before:
-        "/b7.png",
-      after:
-        "/a7.png",
-      type: "Restorative",
-    },
+    // {
+    //   title: "Full Mouth Rehabilitation",
+    //   before:
+    //     "/b7.png",
+    //   after:
+    //     "/a7.png",
+    //   type: "Restorative",
+    // },
   ];
 
   const [sliderPositions, setSliderPositions] = useState<{
