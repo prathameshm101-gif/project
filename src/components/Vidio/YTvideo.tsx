@@ -1,11 +1,13 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const YTvideo = () => {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const firstCardRef = useRef<HTMLDivElement>(null);
+  const [buttonTop, setButtonTop] = useState("50%");
 
-  const videos = [
+const videos = [
     {
       id: "short1",
       videoId: "n8hpGs2bNXE",
@@ -67,7 +69,7 @@ export const YTvideo = () => {
 
   const scrollBy = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.clientWidth / 4; // One video width
+      const scrollAmount = scrollRef.current.clientWidth / 4; // one video width approx
       scrollRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
@@ -75,21 +77,13 @@ export const YTvideo = () => {
     }
   };
 
-  // Optional touch swipe support (basic)
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    touchEndX = e.changedTouches[0].clientX;
-    const diff = touchEndX - touchStartX;
-    if (Math.abs(diff) > 50) {
-      scrollBy(diff < 0 ? "right" : "left");
+  useEffect(() => {
+    // On mount, measure the first card height and position buttons vertically centered
+    if (firstCardRef.current) {
+      const height = firstCardRef.current.offsetHeight;
+      setButtonTop(`${height / 2}px`); // center relative to card height
     }
-  };
+  }, []);
 
   return (
     <section className="bg-[url('/rectangle-512.png')] mt-[-5%] bg-cover bg-center py-16 md:py-24 px-4 md:px-8">
@@ -98,52 +92,69 @@ export const YTvideo = () => {
           Watch How Dr. Shet Transforms Smiles
         </h2>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={() => scrollBy("left")}
-          className="absolute top-1/2 left-[-10px] z-10 transform -translate-y-1/5 bg-white hover:bg-gray-100 p-2 rounded-full shadow-md transition"
-        >
-          <ChevronLeft className="text-[#0578b1]" />
-        </button>
+        {/* Container for video strip + buttons */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => scrollBy("left")}
+            style={{ top: buttonTop }}
+            className="absolute left-[-10px] z-10 transform -translate-y-1/2 bg-white hover:bg-gray-100 p-2 rounded-full shadow-md transition"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="text-[#0578b1]" />
+          </button>
 
-        <button
-          onClick={() => scrollBy("right")}
-          className="absolute top-1/2 right-[-10px] z-10 transform -translate-y-1/5 bg-white hover:bg-gray-100 p-2 rounded-full shadow-md transition"
-        >
-          <ChevronRight className="text-[#0578b1]" />
-        </button>
+          <button
+            onClick={() => scrollBy("right")}
+            style={{ top: buttonTop }}
+            className="absolute right-[-10px] z-10 transform -translate-y-1/2 bg-white hover:bg-gray-100 p-2 rounded-full shadow-md transition"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="text-[#0578b1]" />
+          </button>
 
-        {/* Video Strip */}
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto gap-4 scroll-smooth no-scrollbar scrollbar-hide "
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          {videos.map((video, index) => (
-            <div
-              key={video.id}
-              className="min-w-[250px] aspect-[9/16] bg-black rounded-lg overflow-hidden cursor-pointer relative"
-              onClick={() => handleVideoClick(index)}
-            >
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-[#0578b1]"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </button>
+          {/* Video Strip */}
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-4 scroll-smooth no-scrollbar scrollbar-hide"
+            onTouchStart={(e) => {
+              (scrollRef.current! as any).touchStartX = e.touches[0].clientX;
+            }}
+            onTouchEnd={(e) => {
+              const touchStartX = (scrollRef.current! as any).touchStartX;
+              const touchEndX = e.changedTouches[0].clientX;
+              const diff = touchEndX - touchStartX;
+              if (Math.abs(diff) > 50) {
+                scrollBy(diff < 0 ? "right" : "left");
+              }
+            }}
+          >
+            {videos.map((video, index) => (
+              <div
+                key={video.id}
+                ref={index === 0 ? firstCardRef : null} // ref first card only
+                className="min-w-[250px] aspect-[9/16] bg-black rounded-lg overflow-hidden cursor-pointer relative"
+                onClick={() => handleVideoClick(index)}
+              >
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                  <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-6 h-6 text-[#0578b1]"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Modal */}
@@ -153,6 +164,7 @@ export const YTvideo = () => {
               <button
                 onClick={handleCloseVideo}
                 className="absolute -top-10 right-0 text-white text-xl"
+                aria-label="Close video"
               >
                 ✕
               </button>
