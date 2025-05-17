@@ -129,14 +129,14 @@ const BeforAfter = () => {
 
             {transformations.map((item, index) => (
               <div key={index}  className="w-full md:w-[48%] lg:w-[30%] max-w-[400px]">
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <h3 className="text-xl font-semibold text-[#0578b1]">
                     {item.title}
                   </h3>
                   <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
                     {item.type}
                   </span>
-                </div>
+                </div> */}
 
                 <div
                   className="relative h-[300px] md:h-[350px] w-full overflow-hidden rounded-lg shadow-lg cursor-ew-resize select-none"
