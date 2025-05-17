@@ -19,18 +19,17 @@ const Hero = () => {
               to 400+ Dentists
             </div>
             <Button className="w-full h-12 mt-8 lg:mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-2 px-3 sm:px-4 overflow-hidden">
-  <div className="min-w-0 flex items-center gap-2">
-    <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
-      Schedule Your Free Video Consultation
-    </span>
-    <img
-      className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] flex-shrink-0"
-      alt="Arrow Icon"
-      src="/math.png"
-    />
-  </div>
-</Button>
-
+              <div className="min-w-0 flex items-center gap-2">
+                <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
+                  Schedule Your Free Video Consultation
+                </span>
+                <img
+                  className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] flex-shrink-0"
+                  alt="Arrow Icon"
+                  src="/math.png"
+                />
+              </div>
+            </Button>
           </div>
           {/* Right Column */}
           <div className="relative ">

@@ -49,16 +49,19 @@ const About = () => {
               </div>
             </div>
           </div>
-        {/* CTA Button */}
-        <div className="w-full text-center">
-  <Button className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto">
-    <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal whitespace-nowrap p-2">
-      Get In Touch With Dr. Shet via Video Call
-    </span>
-    <img className="w-[29px] h-[29px] ml-2" alt="Frame" src="/math.png" />
-  </Button>
-</div>
-
+          {/* CTA Button */}
+          <div className="w-full text-center">
+            <Button className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto">
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
+                Get In Touch With Dr. Shet via Video Call
+              </span>
+              <img
+                className="w-[29px] h-[29px] ml-2"
+                alt="Frame"
+                src="/math.png"
+              />
+            </Button>
+          </div>
         </div>
       </section>
     </div>
