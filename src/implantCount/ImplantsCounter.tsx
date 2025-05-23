@@ -5,9 +5,9 @@ const ImplantsCounter = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const counterRef = useRef<HTMLDivElement | null>(null);
 
-  const targetCount = 100;
-  const duration = 2000; // 2 seconds
-  const steps = 50;
+  const targetCount = 150000;
+  const duration = 3000; // 3 seconds
+  const steps = 60;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,14 +46,30 @@ const ImplantsCounter = () => {
     return () => clearInterval(counter);
   }, [hasAnimated]);
 
+  const formatNumber = (num: number) => {
+    return Math.round(num).toString().padStart(6, '0').split('');
+  };
+
   return (
-    <section ref={counterRef} className="py-16 bg-[#0578b1] text-white">
+    <section ref={counterRef} className="py-8 md:py-12 bg-white">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {Math.round(count)}+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#4a4a4a]">
+            Dr. Shet has completed
           </h2>
-          <p className="text-xl md:text-2xl">Successful Implant Procedures</p>
+          <div className="flex">
+            {formatNumber(count).map((digit, index) => (
+              <div
+                key={index}
+                className="w-12 md:w-16 lg:w-20 h-16 md:h-20 lg:h-24 bg-[#ff7f50] text-white text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mx-0.5 rounded"
+              >
+                {digit}
+              </div>
+            ))}
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#4a4a4a]">
+            Successful Implants
+          </h2>
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export const Prathamesh = (): JSX.Element => {
       <Hero />
 
       {/* Implants Counter Section */}
-      {/* <ImplantsCounter /> */}
+      <ImplantsCounter />
 
       {/* About Section */}
       <About />
