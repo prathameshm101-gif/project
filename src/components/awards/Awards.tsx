@@ -178,7 +178,11 @@ const Awards = () => {
         </div>
 
         {/* CTA Button */}
-        <Button className="w-full lg:w-[372px] h-12 mt-8 mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
+        <Button 
+        onClick={() => {
+                window.open('https://wa.me/917045697485', '_blank')
+              }}
+        className="w-full lg:w-[372px] h-12 mt-8 mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
           <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal mr-1">
             Request a Virtual Consultation
           </span>

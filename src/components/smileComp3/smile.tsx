@@ -136,7 +136,11 @@ const Smile = () => {
         </div>
 
         {/* Right-side Image (only for desktop) */}
-        <div className="absolute right-0 top-0 h-full w-1/2 z-10 hidden lg:block">
+        <div 
+        onClick={() => {
+                window.open('https://wa.me/917045697485', '_blank')
+              }}
+        className="absolute right-0 top-0 h-full w-1/2 z-10 hidden lg:block">
           <img
             src="/smileTransformationSection.png"
             alt="Smile Transformation"
