@@ -100,7 +100,7 @@ const Smile = () => {
               <h2 className="text-5xl font-semibold text-[#0578b1]">
                 How Will My Smile Look?
               </h2>
-              <p className="text-xl text-[#000000a6]">
+              <p className="text-3xl text-black font-bold text-opacity-65 tracking-tight">
                 After my treatment with Dr. Kunal
               </p>
               <p className="text-lg text-[#4a4a4a]">
