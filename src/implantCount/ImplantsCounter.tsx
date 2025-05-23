@@ -1,78 +1,115 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const ImplantsCounter = () => {
-  const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const counterRef = useRef<HTMLDivElement | null>(null);
+const ImplantsCounter: React.FC = () => {
+  const [topDigits, setTopDigits] = useState<number>(0);
+  const [randomDigits, setRandomDigits] = useState<string>("0000");
+  const [hasStarted, setHasStarted] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const targetCount = 150000;
-  const duration = 3000; // 3 seconds
-  const steps = 60;
-
+  // Intersection Observer: trigger when 50% visible
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
         }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.5, // 50% visibility
+      }
     );
 
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
 
     return () => {
-      if (counterRef.current) {
-        observer.unobserve(counterRef.current);
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
       }
     };
-  }, [hasAnimated]);
+  }, [hasStarted]);
 
+  // Counter Logic
   useEffect(() => {
-    if (!hasAnimated) return;
+    if (!hasStarted) return;
 
-    const increment = targetCount / steps;
-    const intervalTime = duration / steps;
+    const randomInterval = setInterval(() => {
+      if (topDigits < 15) {
+        const random = Array.from({ length: 4 }, () =>
+          Math.floor(Math.random() * 10)
+        ).join("");
+        setRandomDigits(random);
+      } else {
+        setRandomDigits("0000");
+        clearInterval(randomInterval);
+      }
+    }, 50);
 
-    const counter = setInterval(() => {
-      setCount((prevCount) => {
-        const newCount = prevCount + increment;
-        return newCount >= targetCount ? targetCount : newCount;
+    const topInterval = setInterval(() => {
+      setTopDigits((prev) => {
+        if (prev < 15) return prev + 1;
+        clearInterval(topInterval);
+        return prev;
       });
-    }, intervalTime);
+    }, 200);
 
-    return () => clearInterval(counter);
-  }, [hasAnimated]);
+    return () => {
+      clearInterval(randomInterval);
+      clearInterval(topInterval);
+    };
+  }, [hasStarted, topDigits]);
 
-  const formatNumber = (num: number) => {
-    return Math.round(num).toString().padStart(6, '0').split('');
-  };
+  const fullCounter = String(topDigits).padStart(2, "0") + randomDigits;
+  const counterDigits: string[] = fullCounter.split("");
 
   return (
-    <section ref={counterRef} className="py-8 md:py-12 bg-white">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#4a4a4a]">
-            Dr. Shet has completed
-          </h2>
-          <div className="flex">
-            {formatNumber(count).map((digit, index) => (
-              <div
-                key={index}
-                className="w-12 md:w-16 lg:w-20 h-16 md:h-20 lg:h-24 bg-[#ff7f50] text-white text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mx-0.5 rounded"
-              >
-                {digit}
-              </div>
-            ))}
-          </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#4a4a4a]">
-            Successful Implants
-          </h2>
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center justify-center font-sans p-4"
+    >
+      <div className="flex items-center justify-center flex-wrap">
+        <p
+          className=" text-3xl font-normal mr-4 whitespace-nowrap tracking-tight"
+          style={{ color: "#4A4A4A" }}
+        >
+          Dr. Shet has completed
+        </p>
+
+        <div className="flex justify-center items-center ">
+          {counterDigits.map((digit: string, index: number) => (
+            <div
+              key={index}
+              className="w-16 h-20  m-0.5 bg-orange-500 relative rounded-md shadow-sm
+                         flex justify-center items-center text-5xl text-white font-bold
+                         overflow-hidden"
+            >
+              {digit}
+              {index === 0 && (
+                <div
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-2.5 h-5 bg-white"
+                  style={{ borderRadius: "0 30px 30px 0" }}
+                ></div>
+              )}
+              {index === counterDigits.length - 1 && (
+                <div
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-5 bg-white"
+                  style={{ borderRadius: "30px 0 0 30px" }}
+                ></div>
+              )}
+            </div>
+          ))}
         </div>
+
+        <p
+          className="text-gray-700 text-3xl font-normal ml-4 whitespace-nowrap tracking-tight"
+          style={{ color: "#4A4A4A" }}
+        >
+          Successful Implants
+        </p>
       </div>
-    </section>
+    </div>
   );
 };
 
