@@ -1,8 +1,7 @@
-import React from "react";
 import { Button } from "../ui/button";
 const Hero = () => {
   return (
-    <section className="relative min-h-[590px] bg-[url(/rectangle-469.svg)] bg-cover bg-center px-4 md:px-8 lg:px-0">
+    <section className="relative min-h-[500px]  bg-cover bg-center px-4 md:px-8 lg:px-0" style={{background:"#EAF8FF"}}>
       <div className="container mx-auto max-w-7xl ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Column */}

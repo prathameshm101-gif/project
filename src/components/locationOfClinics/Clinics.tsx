@@ -1,36 +1,8 @@
-import { useState, useEffect } from 'react';
+
 import { Button } from '../ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 const Clinics = () => {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-
-  const videoIds = [
-    "n8hpGs2bNXE",
-    "79cVNtpbIRM",
-    "35Sdpz7P-mo",
-    "An_KT8UMZ_o",
-    "5tTzEAI_Y84",
-    "99lD6oMq1bo",
-    "4Ob0OTUH73c"
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videoIds.length);
-    }, 8000); // 8 seconds per video
-    return () => clearInterval(interval);
-  }, [videoIds.length]);
-
-  const handlePrevious = () => {
-    setCurrentVideoIndex((prev) =>
-      prev === 0 ? videoIds.length - 1 : prev - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentVideoIndex((prev) => (prev + 1) % videoIds.length);
-  };
 
   return (
     <div>
@@ -48,32 +20,13 @@ const Clinics = () => {
 
               <div className="relative rounded-lg overflow-hidden">
                 <div className="relative h-[300px] md:h-[400px]">
-                  {videoIds.map((id, index) => (
                     <iframe
-                      key={index}
-                      className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
-                        currentVideoIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                      }`}
-                      src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`}
-                      title={`Dental Video ${index + 1}`}
+                      className="absolute top-0 left-0 w-full h-full transition-opacity duration-500 autoplay "
+                       src="https://www.youtube.com/embed/tQIQlmsN54o?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=tQIQlmsN54o"
+                      title= "Dental Video"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
-                  ))}
-                  <button
-                    onClick={handlePrevious}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors z-10"
-                    aria-label="Previous video"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-[#0578b1]" />
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors z-10"
-                    aria-label="Next video"
-                  >
-                    <ChevronRight className="w-6 h-6 text-[#0578b1]" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -88,10 +41,10 @@ const Clinics = () => {
           </div>
 
           <Button className="w-full lg:w-[372px] h-12 mt-8 lg:mt-[100px] mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200">
-            <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal">
+            <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal mr-1">
               Request a Virtual Consultation
             </span>
-            <img className="w-[29px] h-[29px]" alt="Frame" src="/math.png" />
+            <img className="w-[20px] h-[20px]"  alt="Frame" src="/math.png"   />
           </Button>
         </div>
       </section>

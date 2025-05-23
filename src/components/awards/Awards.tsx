@@ -179,10 +179,10 @@ const Awards = () => {
 
         {/* CTA Button */}
         <Button className="w-full lg:w-[372px] h-12 mt-8 mx-auto block bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5">
-          <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal">
-            Request a Virtual Quote
+          <span className="font-['Poppins'] font-medium text-white text-lg lg:text-[23px] tracking-[-0.92px] leading-normal mr-1">
+            Request a Virtual Consultation
           </span>
-          <img className="w-[29px] h-[29px]" alt="Frame" src="/math.png" />
+          <img className="w-[20px] h-[20px]" alt="Frame" src="/math.png" />
         </Button>
       </div>
     </section>

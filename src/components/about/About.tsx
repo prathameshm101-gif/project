@@ -15,7 +15,7 @@ const About = () => {
                 className="w-full max-w-md mx-auto"
               />
               <div className="text-center mt-4">
-                <h3 className="text-xl font-semibold text-[#0578b1]">
+                <h3 className="text-xl font-black text-[#0578b1]">
                   Dr. Kunal Shet
                 </h3>
                 <p className="text-sm text-[#0578b1]">
@@ -56,7 +56,7 @@ const About = () => {
                 Get In Touch With Dr. Shet via Video Call
               </span>
               <img
-                className="w-[29px] h-[29px] ml-2"
+                className="w-[20px] h-[20px] ml-2"
                 alt="Frame"
                 src="/math.png"
               />
