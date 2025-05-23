@@ -1,45 +1,43 @@
 import { Analytics } from "@vercel/analytics/react";
-import Hero from '../../components/hero/Hero';
-import About from '../../components/about/About';
-import Smile from '../../components/smileComp3/smile'
+import Hero from "../../components/hero/Hero";
+import About from "../../components/about/About";
+import Smile from "../../components/smileComp3/smile";
 import Awards from "../../components/awards/Awards";
 import BeforAfter from "../../components/beforeAfter/BeforAfter";
-import Clinics  from "../../components/locationOfClinics/Clinics";
-import {YTvideo} from "../../components/Vidio/YTvideo";
-import ContactForm from '../../components/form/ContactForm'
-import  ImplantsCounter  from "../../implantCount/ImplantsCounter";
-
-
+import Clinics from "../../components/locationOfClinics/Clinics";
+import { YTvideo } from "../../components/Vidio/YTvideo";
+import ContactForm from "../../components/form/ContactForm";
+import ImplantsCounter from "../../implantCount/ImplantsCounter";
 
 export const Prathamesh = (): JSX.Element => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-    <Hero/>
-
-      {/* About Section */}
-    <About/>
-
-      {/* Smile Transformation Section */}
-    <Smile/>
-
-      {/* Awards Section */}
-      <Awards/>
+      <Hero />
 
       {/* Implants Counter Section */}
-      <ImplantsCounter />
+      {/* <ImplantsCounter /> */}
+
+      {/* About Section */}
+      <About />
+
+      {/* Smile Transformation Section */}
+      <Smile />
+
+      {/* Awards Section */}
+      <Awards />
 
       {/* Gallery Section */}
-      <BeforAfter/>
+      <BeforAfter />
 
       {/* Clinics Location */}
-      <Clinics/>
+      <Clinics />
 
       {/* YT Video */}
-    <YTvideo/>
+      <YTvideo />
 
-    {/* Form */}
-    <ContactForm/>
+      {/* Form */}
+      <ContactForm />
 
       {/* Analytics */}
       <Analytics />
