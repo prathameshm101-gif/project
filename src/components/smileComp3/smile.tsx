@@ -138,7 +138,7 @@ const Smile = () => {
         {/* Right-side Image (only for desktop) */}
         <div 
         onClick={() => {
-                window.open('https://wa.me/917045697485', '_blank')
+                window.open('https://wa.me/919981057175', '_blank')
               }}
         className="absolute right-0 top-0 h-full w-1/2 z-10 hidden lg:block">
           <img
