@@ -5,11 +5,12 @@ const About = () => {
   return (
     <div>
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-0">
-        <div className="container mb-10 text-center">
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1]">
-            Meet Dr. Kunal Shet: The Smile Architect
-          </h2>
-        </div>
+      <div className="container mb-8 text-center !p-0">
+  <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1]">
+    Meet Dr. Kunal Shet: The Smile Architect
+  </h2>
+</div>
+
 
 
         <div className="container mx-auto max-w-7xl">
@@ -17,11 +18,13 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Image section - displayed first on mobile */}
             <div className="order-1 lg:order-2 relative">
-              <img
-                src="/group-168.png"
-                alt="Dr. Kunal Shet Portrait"
-                className="w-full max-w-md mx-auto"
-              />
+            <img
+  src="/group-168.png"
+  alt="Dr. Kunal Shet Portrait"
+  className="w-full max-w-md mx-auto  object-contain"
+  style={{ height: "300px" }}
+/>
+
               <div className="text-center mt-4">
                 <h3 className="text-xl font-black text-[#0578b1]">
                   Dr. Kunal Shet
