@@ -5,7 +5,15 @@ const About = () => {
   return (
     <div>
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-0">
+        <div className="container mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1]">
+            Meet Dr. Kunal Shet: The Smile Architect
+          </h2>
+        </div>
+
+
         <div className="container mx-auto max-w-7xl">
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Image section - displayed first on mobile */}
             <div className="order-1 lg:order-2 relative">
@@ -28,9 +36,7 @@ const About = () => {
 
             {/* Text section - displayed second on mobile */}
             <div className="space-y-6 order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0578b1]">
-                Meet Dr. Kunal Shet: The Smile Architect
-              </h2>
+
               <div className="text-lg text-[#4a4a4a] space-y-4">
                 <p>
                   Dr. Kunal Shet is a celebrated implantologist and a pioneer in
@@ -51,11 +57,11 @@ const About = () => {
           </div>
           {/* CTA Button */}
           <div className="w-full text-center">
-            <Button 
-            onClick={() => {
+            <Button
+              onClick={() => {
                 window.open('https://wa.me/919981057175', '_blank')
               }}
-            className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
               <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
                 Get In Touch With Dr. Shet via Video Call
               </span>
