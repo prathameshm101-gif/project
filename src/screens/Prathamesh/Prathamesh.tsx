@@ -41,6 +41,7 @@ export const Prathamesh = (): JSX.Element => {
 
       {/* Analytics */}
       <Analytics />
+      {/* new */}
     </div>
   );
 };
